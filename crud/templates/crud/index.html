@@ -1,15 +1,36 @@
 {% extends 'crud/base.html' %}
+
 {% block body %}
 <form class="form-inline"  action="create" method="POST">
     {% csrf_token %}
     <div class="form-group">
-        <label for="firstname">Firstname</label>
-        <input type="text" name="firstname" class="form-control" style="width:30%;" required="required"/>
-        <label for="lastname">Lastname</label>
-        <input type="text" name="lastname" class="form-control" style="width:30%;" required="required"/>
+        <label for="firstname">Nombre</label>
+        <input type="text" name="firstname" class="form-control" style="width:50%;" required="required"/>
+        <br />
+        <label for="lastname">Apellido</label>
+        <input type="text" name="lastname" class="form-control" style="width:50%;" required="required"/>
+        <br />
+        <label for="DNI">DNI</label>
+        <input type="text" name="DNI" class="form-control" style="width:60%;" required="required"/>
+        <br />
+        <label for="fecha_nacimiento">Fecha_Nacimiento</label>
+        <input type="text" name="fecha_nacimiento" class="form-control" style="width:30%;" required="required"/>
+        <br />
         <button type="submit" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-plus"></span> ADD</button>
+        <br />
+
+        <a href="https://www.google.com/">Ir a Google</a>
+
     </div>
 </form>
+
+<form method="GET" action="search">
+  <div class="form-inline">
+    <input type="text" placeholder="Search" name="search" class="form-control" required="required" />
+    <button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span> Search</button>
+  </div>
+</form>
+
 <br />
 <table class="table table-bordered">
     <thead class="alert-warning">
