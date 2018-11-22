@@ -3,20 +3,20 @@
     <form method="POST" action="update/{{ members.id }}">
         {% csrf_token %}
         <div class="form-group">
-            <label for="firstname">Firstname</label>
+            <label for="firstname">Nombre</label>
             <input type="text" name="firstname" value="{{ members.firstname }}" required="required"/>
         </div>
         <div class="form-group">
-            <label for="DNI">Firstname</label>
+            <label for="DNI">DNI</label>
             <input type="text" name="DNI" value="{{ members.DNI }}" required="required"/>
         </div>
         <div class="form-group">
-            <label for="lastname">Lastname</label>
+            <label for="lastname">Apellido</label>
             <input type="text" name="lastname" value="{{ members.lastname }}" required="required"/>
         </div>
         <div class="form-group">
-            <label for="fecha_nacimiento">Lastname</label>
-            <input type="text" name="fecha_nacimiento" value="{{ members.fecha_nacimiento }}" required="required"/>
+            <label for="Fecha_Nacimiento">Fecha_Nacimiento</label>
+            <input type="date" name="Fecha_Nacimiento" value="{{ members.Fecha_Nacimiento }}" required="required"/>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-edit"></span> Update</button>

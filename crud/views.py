@@ -34,6 +34,5 @@ def delete(request, id):
     return redirect('/crud/')
 
 def search(request):
-    members = Member.objects.filter(Q(firstname=request.GET.get('search')) | Q(lastname=request.GET.get('search'))
-    | Q(DNI=request.GET.get('search'))| Q(fecha_nacimiento=request.GET.get('search')))
+    members = Member.objects.filter(Q(firstname=request.GET.get('search')) | Q(lastname=request.GET.get('search')))
     return render(request, 'crud/index.html', {'members': members})
