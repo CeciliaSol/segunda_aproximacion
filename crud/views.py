@@ -12,7 +12,12 @@ def index(request):
     return render(request, 'crud/index.html', context)
 
 def create(request):
-    member = Member(firstname=request.POST['firstname'], lastname=request.POST['lastname'])
+    member = Member(
+    firstname=request.POST['firstname'],
+    lastname=request.POST['lastname'],
+    nro_doc=request.POST['nro_doc'],
+    fecha_nacimiento=request.POST['fecha_nacimiento']
+    )
     member.save()
     return redirect('/')
 
@@ -25,6 +30,8 @@ def update(request, id):
     member = Member.objects.get(id=id)
     member.firstname = request.POST['firstname']
     member.lastname = request.POST['lastname']
+    member.nro_doc = request.POST['nro_doc']
+    member.fecha_nacimiento = request.POST['fecha_nacimiento']
     member.save()
     return redirect('/crud/')
 
@@ -34,5 +41,5 @@ def delete(request, id):
     return redirect('/crud/')
 
 def search(request):
-    members = Member.objects.filter(Q(firstname=request.GET.get('search')) | Q(lastname=request.GET.get('search')))
+    members = Member.objects.filter(Q(nro_doc=request.GET.get('search')))
     return render(request, 'crud/index.html', {'members': members})
